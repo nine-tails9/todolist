@@ -24,6 +24,8 @@ class ComController extends Controller
 
         $com->task_id = $req->id;
 
+        $com->user_id = auth()->user()->id;
+
         $com -> save();
         return back();
 

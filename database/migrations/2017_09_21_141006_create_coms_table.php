@@ -15,8 +15,15 @@ class CreateComsTable extends Migration
     {
         Schema::create('coms', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->timestamps();
+            
             $table->integer('task_id');
+
+            $table->integer('user_id');
+
+
+
             $table->string('body');
         });
     }

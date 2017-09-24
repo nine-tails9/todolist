@@ -10,13 +10,22 @@ class TaskController extends Controller
 {
     //
     public function __construct(){
-        //$this->middleware('auth');
+       
+         $this->middleware('auth')->except(['task','show']);
     }
+    
     public function index(){
 
         $tasks = Task::latest()->get();
 
     	return view('post.create', compact('tasks'));
+    }
+
+    public function task(){
+
+        $tasks = Task::latest()->get();
+
+        return view('post.task', compact('tasks'));
     }
 
     public function create(Request $request){
@@ -38,7 +47,7 @@ class TaskController extends Controller
     	$Task->task = $request['Task'];
 
 
-    	$Task->user_id = 1;
+    	$Task->user_id = auth()->user()->id;
     	$Task->task_id = 1;
 
     	$Task->save();

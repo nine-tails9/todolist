@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TaskController extends Migration
+class Users extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class TaskController extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        //
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            
-            $table->timestamps();
+            $table->rememberToken();
 
-            $table->integer('user_id');
+            $table->timestamps();
             
-            $table->text('task');
-            
-            $table->text('title');
-            
-            $table->integer('task_id');
+            $table->string('password');
+
+            $table->string('email');
+
 
         });
     }

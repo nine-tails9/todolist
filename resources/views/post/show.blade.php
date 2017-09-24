@@ -5,6 +5,7 @@
 	@foreach($task as $t)
 	<div class="jumbotron">
 	  <h2>{{$t->title}}</h2>
+	  <small>{{ $t->user->email}}</small>
 	  <p>{{ $t->task }}</p>
 	</div>
 
@@ -22,7 +23,8 @@
 	  	
 	  	@foreach($t->com as $comm)
 
-	  		<tr><td>{{ $comm->body }}  </td><td> <small>{{ $comm->created_at->diffForHumans()}} </small>  </td></tr>
+	  		<tr><td>{{ $comm->body }}  </td><td> <small>{{ $comm->created_at->diffForHumans()}} </small>  </td><td>By: {{ $comm->user->email}}</td></tr>
+
 
 	  
 	  	@endforeach

@@ -12,4 +12,9 @@ class Task extends Model
 
     	return $this->hasMany(com::Class);
     }
+
+    public function user(){
+
+    	return $this->belongsTo(User::Class);
+    }
 }
