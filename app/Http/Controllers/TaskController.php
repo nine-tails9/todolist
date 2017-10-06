@@ -23,6 +23,7 @@ class TaskController extends Controller
 
     public function task(){
 
+
         $tasks = Task::latest()->get();
 
         return view('post.task', compact('tasks'));
@@ -51,6 +52,8 @@ class TaskController extends Controller
     	$Task->task_id = 1;
 
     	$Task->save();
+
+        session()->flash('message','Task Created');
 
 
 

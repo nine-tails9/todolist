@@ -21,7 +21,7 @@ class RegistrationController extends Controller
 
 
         $request->validate([
-
+            
             'email' => 'required|min:5|email',
 
             'Password' => 'required|min:5'
@@ -41,6 +41,9 @@ class RegistrationController extends Controller
     	auth()->login($user);
 
         \Mail::to($user)->send(new Welcome($user));
+
+
+        session()->flash('message', "Thank You For Signing up!");
 
     	return redirect('/');
 
