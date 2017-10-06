@@ -12,6 +12,12 @@
 */
 
 
+
+
+
+$stripe = App::make('App\Billing\Stripe');
+
+
 Route::get('/', 'TaskController@task');
 
 

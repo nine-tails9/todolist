@@ -40,7 +40,7 @@
 	</div>
 	<div class="container">
 
-	 <form action= "/task/addComment/{{$t->id}}" method="post">
+	 <form action= "/task/addComment/{{ $task[0]->id }}" method="post">
 	 {{csrf_field()}}
 	
 	 <div class="form-group"><textarea name="comment" id="comment" cols="90" rows="5" placeholder="Type In Your Comment"></textarea>
